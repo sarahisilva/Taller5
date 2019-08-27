@@ -1,0 +1,181 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Tic Empresas",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/autonomo/public"
+        }
+    ],
+    "paths": {
+        "/tic": {
+            "get": {
+                "summary": "Mostrar empresas",
+                "operationId": "App\\Http\\Controllers\\TicController::index",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las empresas."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/add": {
+            "post": {
+                "summary": "Agregar nueva empresa",
+                "operationId": "App\\Http\\Controllers\\TicController::store",
+                "responses": {
+                    "200": {
+                        "description": "Agregar empresa en bd."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/edit/{id}": {
+            "get": {
+                "summary": "Mostrar usuarios",
+                "operationId": "App\\Http\\Controllers\\TicController::edit",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Editar usuario."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar empresa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sector_economico": {
+                                        "description": "Email address of the new user.",
+                                        "type": "string"
+                                    },
+                                    "tam_empresa": {
+                                        "description": "Tam of the new empresa.",
+                                        "type": "string"
+                                    },
+                                    "provincia": {
+                                        "description": "Provincia of the new empresa.",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizar empresa id determinado."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Actualizar empresa",
+                "operationId": "App\\Http\\Controllers\\TicController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sector_economico": {
+                                        "description": "Email address of the new user.",
+                                        "type": "string"
+                                    },
+                                    "tam_empresa": {
+                                        "description": "Tam of the new empresa.",
+                                        "type": "string"
+                                    },
+                                    "provincia": {
+                                        "description": "Provincia of the new empresa.",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizar empresa id determinado."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/{id}": {
+            "delete": {
+                "summary": "Eliminar empresa",
+                "operationId": "App\\Http\\Controllers\\TicController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Eliminar empresa."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        }
+    }
+}
